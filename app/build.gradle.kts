@@ -8,12 +8,15 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
+
+val javafxVersion = "20.0.1"
 
 dependencies {
     // Use JUnit Jupiter for testing.
@@ -23,6 +26,15 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+
+    listOf("base", "controls", "fxml", "graphics").forEach { module ->
+        implementation("org.openjfx:javafx-$module:$javafxVersion")
+    }
+}
+
+javafx {
+    version = javafxVersion
+    modules = listOf("javafx.controls", "javafx.fxml")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -34,7 +46,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    mainClass = "it.unicam.cs.mpgc.rpg126355.App"
 }
 
 tasks.named<Test>("test") {
