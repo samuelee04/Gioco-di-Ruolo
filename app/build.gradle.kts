@@ -27,6 +27,12 @@ dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
 
+    //Hibernate e database H2
+    testImplementation("jakarta.persistence:jakarta.persistence-api:3.0.0")
+    implementation("org.hibernate.orm:hibernate-core:6.2.7.Final")
+    implementation("jakarta.persistence:jakarta.persistence-api:3.0.0")
+    implementation("com.h2database:h2:2.2.224")
+
     listOf("base", "controls", "fxml", "graphics").forEach { module ->
         implementation("org.openjfx:javafx-$module:$javafxVersion")
     }
@@ -35,6 +41,15 @@ dependencies {
 javafx {
     version = javafxVersion
     modules = listOf("javafx.controls", "javafx.fxml")
+}
+
+//Indico a Gradle dove si trovano i file di risorsa
+sourceSets {
+    main {
+        resources {
+            srcDir ("src/main/resources")
+        }
+    }
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -52,4 +67,9 @@ application {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+//In caso di file duplicato mantengo il primo ed escludo il secondo
+tasks.withType<ProcessResources> {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
