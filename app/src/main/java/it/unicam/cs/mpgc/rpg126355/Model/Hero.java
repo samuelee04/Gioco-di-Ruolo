@@ -31,6 +31,10 @@ public class Hero implements Serializable {
     @Column(nullable = false)
     private int exp;
 
+    @ManyToOne
+    @JoinColumn(name = "weapon_id")
+    private Weapon equippedWeapon;
+
     protected Hero() {}
 
     public Hero(String name) {
@@ -109,5 +113,9 @@ public class Hero implements Serializable {
     @Override
     public String toString() {
         return name;
+    }
+
+    public boolean canEquip(Weapon weapon) {
+        return this.exp >= weapon.getLevel();
     }
 }
