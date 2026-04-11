@@ -65,4 +65,22 @@ public class Weapon implements Serializable {
     public void setLevel(int level) {
         this.level = level;
     }
+
+    public static Weapon generateRandomWeapon() {
+        java.util.Random rand = new java.util.Random();
+
+        String[] tipi = {"Spada", "Ascia", "Martello", "Daga", "Lancia", "Alabarda", "Mazza Chiodata", "Bastone Magico", "Spadone", "Arco Lungo"};
+        String[] suffissi = {
+                "delle Ceneri", "dei Re Caduti", "dell'Abisso", "delle Stelle",
+                "dell'Eclissi", "del Drago", "dell'Ira", "dell'Anima", "del Vuoto",
+                "dimenticata", "sanguinaria", "infranta", "del Giudizio"
+        };
+
+        String randomName = tipi[rand.nextInt(tipi.length)] + " " + suffissi[rand.nextInt(suffissi.length)];
+
+        int randomPower = rand.nextInt(20) + 5;
+        int randomLevel = rand.nextInt(21);
+
+        return new Weapon(randomName, randomPower, randomLevel);
+    }
 }

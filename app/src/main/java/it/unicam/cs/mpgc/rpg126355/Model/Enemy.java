@@ -78,4 +78,19 @@ public class Enemy implements Serializable {
     public void setDef(int def) {
         this.def = def;
     }
+
+    public static Enemy generateRandomEnemy() {
+        java.util.Random rand = new java.util.Random();
+
+        String[] tipi = {"Orco", "Goblin", "Scheletro", "Bandito", "Ragno Gigante", "Lupo Mannaro", "Demone Minore", "Golem", "Vampiro", "Cultista", "Spettro"};
+        String[] aggettivi = {"Feroce", "Corrotto", "Sanguinario", "Putrido", "Oscuro", "Maledetto", "Velenoso", "Corazzato", "Zoppicante", "Famelico"};
+
+        String randomName = tipi[rand.nextInt(tipi.length)] + " " + aggettivi[rand.nextInt(aggettivi.length)];
+
+        int hp = rand.nextInt(50) + 20;   // HP tra 20 e 69
+        int atk = rand.nextInt(10) + 5;   // ATK tra 5 e 14
+        int def = rand.nextInt(10) + 2;   // DEF tra 2 e 11
+
+        return new Enemy(randomName, hp, atk, def);
+    }
 }

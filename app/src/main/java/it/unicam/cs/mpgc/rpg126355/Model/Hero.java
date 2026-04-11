@@ -118,4 +118,12 @@ public class Hero implements Serializable {
     public boolean canEquip(Weapon weapon) {
         return this.exp >= weapon.getLevel();
     }
+
+    public void equipWeapon(Weapon newWeapon) {
+        if (canEquip(newWeapon)) {
+            this.equippedWeapon = newWeapon;
+        } else {
+            throw new IllegalArgumentException("Livello troppo alto per questa arma!");
+        }
+    }
 }
