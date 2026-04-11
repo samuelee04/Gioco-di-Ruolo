@@ -87,9 +87,9 @@ public class Enemy implements Serializable {
 
         String randomName = tipi[rand.nextInt(tipi.length)] + " " + aggettivi[rand.nextInt(aggettivi.length)];
 
-        int hp = rand.nextInt(50) + 20;   // HP tra 20 e 69
-        int atk = rand.nextInt(10) + 5;   // ATK tra 5 e 14
-        int def = rand.nextInt(10) + 2;   // DEF tra 2 e 11
+        int hp = rand.nextInt(30) + 15;
+        int atk = rand.nextInt(10) + 5;
+        int def = rand.nextInt(6) + 2;
 
         return new Enemy(randomName, hp, atk, def);
     }

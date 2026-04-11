@@ -46,9 +46,9 @@ public class Hero implements Serializable {
 
         Random random = new Random();
 
-        this.hp = random.nextInt(41) + 80;
-        this.atk = random.nextInt(11) + 10;
-        this.def = random.nextInt(11) + 10;
+        this.hp = random.nextInt(21) + 40;
+        this.atk = random.nextInt(5) + 4;
+        this.def = random.nextInt(4) + 3;
     }
 
     public Long getId() {
