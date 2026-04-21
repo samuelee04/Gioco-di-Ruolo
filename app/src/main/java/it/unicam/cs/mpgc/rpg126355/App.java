@@ -3,10 +3,24 @@
  */
 package it.unicam.cs.mpgc.rpg126355;
 
+import it.unicam.cs.mpgc.rpg126355.Controller.BasicController;
+import it.unicam.cs.mpgc.rpg126355.Controller.Controller;
+import it.unicam.cs.mpgc.rpg126355.Model.Boss;
+import it.unicam.cs.mpgc.rpg126355.Model.Enemy;
+import it.unicam.cs.mpgc.rpg126355.Model.Hero;
+import it.unicam.cs.mpgc.rpg126355.Model.Weapon;
+import javafx.stage.Stage;
+
 public class App {
 
+    public void start(Stage primaryStage) throws Exception {
 
-    public static void main(String[] args) {
+        Controller<Enemy> enemyController = new BasicController<>(Enemy.class);
+        Controller<Boss> bossController = new BasicController<>(Boss.class);
+        Controller<Hero> heroController = new BasicController<>(Hero.class);
+        Controller<Weapon> weaponController = new BasicController<>(Weapon.class);
+    }
+        public static void main(String[] args) {
 
     }
 }
