@@ -5,22 +5,47 @@ package it.unicam.cs.mpgc.rpg126355;
 
 import it.unicam.cs.mpgc.rpg126355.Controller.BasicController;
 import it.unicam.cs.mpgc.rpg126355.Controller.Controller;
-import it.unicam.cs.mpgc.rpg126355.Model.Boss;
-import it.unicam.cs.mpgc.rpg126355.Model.Enemy;
-import it.unicam.cs.mpgc.rpg126355.Model.Hero;
-import it.unicam.cs.mpgc.rpg126355.Model.Weapon;
+import it.unicam.cs.mpgc.rpg126355.Model.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import it.unicam.cs.mpgc.rpg126355.View.MainView;
 
-public class App {
+/**
+ * Classe principale dell'applicazione
+ * Inizializza i controller e avvia la GUI con la vista principale
+ */
+public class App extends Application {
 
+    @Override
     public void start(Stage primaryStage) throws Exception {
 
         Controller<Enemy> enemyController = new BasicController<>(Enemy.class);
         Controller<Boss> bossController = new BasicController<>(Boss.class);
         Controller<Hero> heroController = new BasicController<>(Hero.class);
         Controller<Weapon> weaponController = new BasicController<>(Weapon.class);
-    }
-        public static void main(String[] args) {
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainView.fxml"));
+
+        Parent root = loader.load();
+
+        MainView mainView = loader.getController();
+
+        mainView.setControllers(enemyController, bossController, heroController, weaponController);
+
+        Scene scene = new Scene(root, 900, 600);
+
+        primaryStage.setTitle("RPG");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
+     * Metodo main che lancia l'applicazione JavaFX.
+     */
+    public static void main(String[] args) {
+        launch();
     }
 }

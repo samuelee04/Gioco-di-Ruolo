@@ -17,4 +17,17 @@ public class MainView {
     private Controller<Boss> bossController;
     private Controller<Hero> heroController;
     private Controller<Weapon> weaponController;
+
+    public void setControllers(Controller<Enemy> enemyController,
+                               Controller<Boss> bossController,
+                               Controller<Hero> heroController,
+                               Controller<Weapon> weaponController) {
+        this.enemyController = enemyController;
+        this.bossController = bossController;
+        this.heroController = heroController;
+        this.weaponController = weaponController;
+    }
+
+    // --- AZIONI DEI BOTTONI GIOCO ---
+
 }
