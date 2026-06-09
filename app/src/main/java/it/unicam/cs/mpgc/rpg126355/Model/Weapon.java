@@ -20,6 +20,7 @@ public class Weapon implements Serializable {
     @Column(nullable = false)
     private int power;
 
+    //Alcune armi potranno essere usate solo al raggiungimento di un certo livello
     @Column(nullable = false)
     private int level;
 
