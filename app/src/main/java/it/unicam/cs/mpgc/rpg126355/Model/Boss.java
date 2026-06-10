@@ -137,5 +137,4 @@ public class Boss implements Serializable {
     public String toString() {
         return "Boss{id=" + id + ", name='" + name + "', hp=" + hp + ", atk=" + atk + ", def=" + def + ", level=" + level + "}";
     }
-
 }

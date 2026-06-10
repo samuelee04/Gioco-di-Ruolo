@@ -120,5 +120,4 @@ public class Enemy implements Serializable {
     public String toString() {
         return "Enemy{id=" + id + ", name='" + name + "', hp=" + hp + ", atk=" + atk + ", def=" + def + "}";
     }
-
 }
