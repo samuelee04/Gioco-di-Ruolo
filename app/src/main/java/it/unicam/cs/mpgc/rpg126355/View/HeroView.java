@@ -29,8 +29,14 @@ public class HeroView {
     private Controller<Weapon> weaponController;
     private Controller<Boss> bossController;
 
+    // Lista osservabile collegata alla TableView: ogni modifica si riflette automaticamente nell'UI
     private final ObservableList<Hero> heroItems = FXCollections.observableArrayList();
 
+    /**
+     * Metodo di inizializzazione invocato automaticamente da JavaFX dopo il caricamento del FXML.
+     * Collega ogni colonna della TableView alla proprietà corrispondente del Model Hero
+     * e imposta la policy di ridimensionamento automatico delle colonne.
+     */
     @FXML
     public void initialize() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -44,6 +50,16 @@ public class HeroView {
         heroTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
+    /**
+     * Inietta i controller necessari alla View e carica immediatamente la lista degli eroi.
+     * Deve essere invocato dalla schermata chiamante dopo il caricamento dell'FXML,
+     * poiché JavaFX non supporta l'injection automatica dei controller nelle View figlie.
+     *
+     * @param heroCtrl    controller per la persistenza degli eroi.
+     * @param enemyCtrl   controller per la persistenza dei nemici.
+     * @param weaponCtrl  controller per la persistenza delle armi.
+     * @param bossCtrl    controller per la persistenza dei boss.
+     */
     public void setControllers(Controller<Hero> heroCtrl, Controller<Enemy> enemyCtrl,
                                Controller<Weapon> weaponCtrl, Controller<Boss> bossCtrl) {
         this.heroController = heroCtrl;
@@ -53,6 +69,7 @@ public class HeroView {
         loadHeroes();
     }
 
+    // Ricarica la lista degli eroi dal database e aggiorna la TableView.
     private void loadHeroes() {
         heroItems.clear();
         if (heroController != null) {
@@ -61,6 +78,12 @@ public class HeroView {
         }
     }
 
+    /**
+     * Gestisce la creazione di un nuovo eroe e l'inizializzazione del mondo di gioco.
+     * Legge il nome dal campo di testo, crea l'eroe e popola il database con
+     * 5 nemici casuali, 3 armi casuali e 1 boss casuale.
+     *
+     */
     @FXML
     public void handleForgeHero() {
         String name = heroNameField.getText() == null ? "" : heroNameField.getText().trim();
@@ -100,6 +123,8 @@ public class HeroView {
         }
     }
 
+    // Elimina l'eroe selezionato nella TableView dal database.
+    // I nemici, le armi e il boss generati alla sua creazione rimangono nel mondo di gioco.
     @FXML
     public void handleDeleteHero() {
         Hero selected = heroTable.getSelectionModel().getSelectedItem();
@@ -117,6 +142,7 @@ public class HeroView {
         }
     }
 
+    // Mostra un dialog di avviso all'utente con il tipo, il titolo e il messaggio specificati.
     private void showAlert(Alert.AlertType type, String title, String message) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

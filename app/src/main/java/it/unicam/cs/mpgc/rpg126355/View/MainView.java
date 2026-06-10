@@ -44,4 +44,24 @@ public class MainView {
             e.printStackTrace();
         }
     }
+
+    // --- AZIONI DEI BOTTONI ADMIN ---
+
+    @FXML
+    public void handleEnemiesClick() {
+        try {
+            // 1. Carica il file FXML dei nemici
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/EnemyView.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            // 2. Prendi il controller e passagli il database
+            EnemyView view = loader.getController();
+            view.setController(enemyController);
+
+            // 3. Mettilo al centro del menù principale!
+            mainPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
