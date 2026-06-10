@@ -5,17 +5,28 @@ import jakarta.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * Rappresenta l'entità Arma all'interno del gioco.
+ * Questa classe è mappata come entità JPA per consentire la persistenza dei dati sul database locale.
+ * Le armi forniscono bonus statistici di attacco (power) agli Eroi che le equipaggiano,
+ * a patto che l'Eroe soddisfi il requisito di esperienza/livello richiesto dall'arma stessa.
+ */
 @Entity
 public class Weapon implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    // Costanti per il bilanciamento delle statistiche dell'arma
     private static final int MIN_POWER   = 5,  POWER_RANGE = 20;
     private static final int LEVEL_RANGE = 21;
 
+    // Pool di componenti stringa per la generazione procedurale del nome dell'equipaggiamento
     private static final String[] TIPI     = {"Spada", "Ascia", "Martello", "Daga", "Lancia", "Alabarda", "Mazza Chiodata", "Bastone Magico", "Spadone", "Arco Lungo"};
     private static final String[] SUFFISSI = {"delle Ceneri", "dei Re Caduti", "dell'Abisso", "delle Stelle", "dell'Eclissi", "del Drago", "dell'Ira", "dell'Anima", "del Vuoto", "dimenticata", "sanguinaria", "infranta", "del Giudizio"};
 
+    /**
+     * Identificatore univoco dell'arma nel database (Primary Key).
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,15 +34,34 @@ public class Weapon implements Serializable {
     @Column(nullable = false)
     private String name;
 
+    /**
+     * Il potere offensivo dell'arma. Rappresenta il bonus di attacco
+     * sommato alle statistiche base dell'Eroe durante un combattimento.
+     */
     @Column(nullable = false)
     private int power;
 
-    //Alcune armi potranno essere usate solo al raggiungimento di un certo livello
+    /**
+     * Il livello/EXP minimo richiesto affinché un Eroe possa equipaggiare l'arma.
+     */
     @Column(nullable = false)
     private int level;
 
+    /**
+     * Costruttore protetto senza parametri richiesto dalle specifiche JPA/Hibernate
+     * per la ricostruzione dell'oggetto durante le letture dal database.
+     */
     protected Weapon() {}
 
+
+    /**
+     * Costruisce una nuova arma effettuando i relativi controlli di validazione sui parametri.
+     *
+     * @param name  Il nome dell'arma.
+     * @param power Il potere offensivo (non deve essere negativo).
+     * @param level Il livello minimo richiesto per l'equipaggiamento (non deve essere negativo).
+     * @throws IllegalArgumentException se il nome è vuoto o se i valori numerici sono negativi.
+     */
     public Weapon(String name, int power, int level){
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Il nome non può essere nullo o vuoto");
@@ -76,6 +106,13 @@ public class Weapon implements Serializable {
         this.level = level;
     }
 
+    /**
+     * Genera in modo procedurale un'arma combinando casualmente una tipologia e un suffisso
+     * tratti dai relativi pool di stringhe, assegnando un potere e un livello richiesto
+     * calcolati entro i range definiti dalle costanti di classe.
+     *
+     * @return Un'istanza di {@link Weapon} configurata proceduralmente.
+     */
     public static Weapon generateRandomWeapon() {
         java.util.Random rand = new java.util.Random();
 
@@ -87,6 +124,13 @@ public class Weapon implements Serializable {
         return new Weapon(randomName, randomPower, randomLevel);
     }
 
+    /**
+     * Verifica l'uguaglianza tra questa arma e un altro oggetto confrontando le rispettive
+     * chiavi primarie (ID) generate dal database.
+     *
+     * @param o L'oggetto con cui effettuare il confronto.
+     * @return true se gli ID corrispondono, false altrimenti.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

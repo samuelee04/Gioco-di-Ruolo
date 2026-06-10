@@ -37,7 +37,7 @@ public class MainView {
             javafx.scene.Parent root = loader.load();
 
             HeroView view = loader.getController();
-            // Passiamo tutti i controller che gli servono per creare il mondo!
+
             view.setControllers(heroController, enemyController, weaponController, bossController);
 
             mainPane.setCenter(root);

@@ -5,20 +5,31 @@ import jakarta.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * Rappresenta l'entità Boss (antagonista finale) all'interno del gioco.
+ * Questa classe è mappata come entità JPA per consentire la persistenza dei dati sul database.
+ * Include le statistiche di combattimento specifiche per le Boss Fight e la logica per la
+ * generazione procedurale dell'antagonista.
+ */
 @Entity
 public class Boss implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
+    // Costanti per il bilanciamento delle statistiche
     private static final int MIN_HP    = 150, HP_RANGE    = 100;
     private static final int MIN_ATK   = 15,  ATK_RANGE   = 20;
     private static final int MIN_DEF   = 10,  DEF_RANGE   = 15;
     private static final int MIN_LEVEL = 20,  LEVEL_RANGE = 10;
 
+    // Pool di nomi e titoli per la generazione procedurale
     private static final String[] NOMI   = {"Azazel", "Gorgoroth", "Malekith", "Voldor", "Kael'thas", "Nyarlathotep", "Balthazar", "Sauron", "Morok"};
     private static final String[] TITOLI = {"Il Distruttore", "Il Senzanome", "Signore dell'Abisso", "Re dei Lich", "Flagello degli Dei", "L'Ombra Strisciante", "Il Divoratore di Anime", "Il Titano Caduto", "L'Araldo della Rovina"};
 
+    /**
+     * Identificatore univoco del Boss nel database (Primary Key).
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,11 +46,30 @@ public class Boss implements Serializable {
     @Column(nullable = false)
     private int def;
 
+    /**
+     * Livello minimo richiesto o livello di forza del Boss.
+     * Determina se un Eroe è abbastanza qualificato per accedere alla Boss Fight.
+     */
     @Column(nullable = false)
     private int level;
 
+    /**
+     * Costruttore protetto richiesto da JPA/Hibernate per l'inizializzazione dell'entità
+     * durante il recupero dal database. Non deve essere usato per la creazione manuale.
+     */
     protected Boss() {}
 
+
+    /**
+     * Costruisce un nuovo Boss validando i parametri forniti in input.
+     *
+     * @param name  Il nome completo del Boss.
+     * @param hp    I Punti Vita (non devono essere negativi).
+     * @param atk   Il valore di attacco (non deve essere negativo).
+     * @param def   Il valore di difesa (non deve essere negativo).
+     * @param level Il livello del Boss (non deve essere negativo).
+     * @throws IllegalArgumentException se uno dei parametri viola i vincoli di validazione.
+     */
     public Boss(String name, int hp, int atk, int def,int level){
         if (name == null || name.isBlank()){
             throw new IllegalArgumentException("Il nome non può essere nullo o vuoto");
@@ -108,6 +138,12 @@ public class Boss implements Serializable {
         this.level = level;
     }
 
+    /**
+     * Genera proceduralmente un'istanza di Boss combinando casualmente un nome e un titolo
+     * tratti dai pool predefiniti, calcolando le statistiche entro i range stabiliti.
+     *
+     * @return Un'istanza di {@link Boss} pronta per essere salvata e sfidata.
+     */
     public static Boss generateRandomBoss() {
         java.util.Random rand = new java.util.Random();
 
@@ -121,6 +157,12 @@ public class Boss implements Serializable {
         return new Boss(randomName, hp, atk, def, level);
     }
 
+    /**
+     * Confronta questo Boss con un altro oggetto basandosi sull'identificatore univoco (ID).
+     *
+     * @param o Oggetto da confrontare.
+     * @return true se gli ID corrispondono, false altrimenti.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
