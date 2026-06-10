@@ -54,11 +54,41 @@ public class MainView {
             javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/EnemyView.fxml"));
             javafx.scene.Parent root = loader.load();
 
-            // 2. Prendi il controller e passagli il database
+            // 2. Prendo il controller e passo il database
             EnemyView view = loader.getController();
             view.setController(enemyController);
 
-            // 3. Mettilo al centro del menù principale!
+            // 3. Lo metto al centro del menù principale
+            mainPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleWeaponsClick() {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/WeaponView.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            WeaponView view = loader.getController();
+            view.setController(weaponController);
+
+            mainPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleBossesClick() {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/BossView.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            BossView view = loader.getController();
+            view.setController(bossController);
+
             mainPane.setCenter(root);
         } catch (Exception e) {
             e.printStackTrace();
