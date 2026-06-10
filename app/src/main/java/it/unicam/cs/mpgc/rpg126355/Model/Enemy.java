@@ -11,6 +11,14 @@ public class Enemy implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    private static final int MIN_HP   = 15, HP_RANGE  = 30;
+    private static final int MIN_ATK  = 5,  ATK_RANGE = 10;
+    private static final int MIN_DEF  = 2,  DEF_RANGE = 6;
+
+    private static final String[] TIPI      = {"Orco", "Goblin", "Scheletro", "Bandito", "Ragno Gigante", "Lupo Mannaro", "Demone Minore", "Golem", "Vampiro", "Cultista", "Spettro"};
+    private static final String[] AGGETTIVI = {"Feroce", "Corrotto", "Sanguinario", "Putrido", "Oscuro", "Maledetto", "Velenoso", "Corazzato", "Zoppicante", "Famelico"};
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,8 +38,17 @@ public class Enemy implements Serializable {
     protected Enemy() {}
 
     public Enemy(String name, int hp, int atk, int def){
-        if(name == null || name.isBlank() || hp < 0 || atk < 0 || def < 0){
-            throw new IllegalArgumentException("Ci sono errori nel costruttore");
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Il nome non può essere nullo o vuoto");
+        }
+        if (hp < 0) {
+            throw new IllegalArgumentException("Gli HP non possono essere negativi");
+        }
+        if (atk < 0) {
+            throw new IllegalArgumentException("L'attacco non può essere negativo");
+        }
+        if (def < 0) {
+            throw new IllegalArgumentException("La difesa non può essere negativa");
         }
         this.name = name;
         this.hp = hp;
@@ -41,10 +58,6 @@ public class Enemy implements Serializable {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -82,15 +95,30 @@ public class Enemy implements Serializable {
     public static Enemy generateRandomEnemy() {
         java.util.Random rand = new java.util.Random();
 
-        String[] tipi = {"Orco", "Goblin", "Scheletro", "Bandito", "Ragno Gigante", "Lupo Mannaro", "Demone Minore", "Golem", "Vampiro", "Cultista", "Spettro"};
-        String[] aggettivi = {"Feroce", "Corrotto", "Sanguinario", "Putrido", "Oscuro", "Maledetto", "Velenoso", "Corazzato", "Zoppicante", "Famelico"};
+        String randomName = TIPI[rand.nextInt(TIPI.length)] + " " + AGGETTIVI[rand.nextInt(AGGETTIVI.length)];
 
-        String randomName = tipi[rand.nextInt(tipi.length)] + " " + aggettivi[rand.nextInt(aggettivi.length)];
-
-        int hp = rand.nextInt(30) + 15;
-        int atk = rand.nextInt(10) + 5;
-        int def = rand.nextInt(6) + 2;
+        int hp  = rand.nextInt(HP_RANGE)  + MIN_HP;
+        int atk = rand.nextInt(ATK_RANGE) + MIN_ATK;
+        int def = rand.nextInt(DEF_RANGE) + MIN_DEF;
 
         return new Enemy(randomName, hp, atk, def);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Enemy e)) return false;
+        return id != null && id.equals(e.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Enemy{id=" + id + ", name='" + name + "', hp=" + hp + ", atk=" + atk + ", def=" + def + "}";
+    }
+
 }

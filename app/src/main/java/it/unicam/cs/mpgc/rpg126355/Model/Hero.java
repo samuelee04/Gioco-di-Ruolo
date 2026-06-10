@@ -12,6 +12,8 @@ public class Hero implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    private static final int INITIAL_EXP = 12;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -42,7 +44,7 @@ public class Hero implements Serializable {
             throw new IllegalArgumentException("Il nome non può essere nullo o vuoto");
         }
         this.name = name;
-        this.exp = 10;
+        this.exp  = INITIAL_EXP;
 
         Random random = new Random();
 
@@ -53,10 +55,6 @@ public class Hero implements Serializable {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -116,15 +114,16 @@ public class Hero implements Serializable {
 
     @Override
     public String toString() {
-        return name;
+        return "Hero{id=" + id + ", name='" + name + "', hp=" + hp + ", atk=" + atk + ", def=" + def + ", exp=" + exp + "}";
     }
+
 
     public boolean canEquip(Weapon weapon) {
         return this.exp >= weapon.getLevel();
     }
 
     public boolean canFight(Enemy enemy) {
-        return this.exp >= enemy.getAtk() || this.exp >= enemy.getDef();
+        return this.exp >= enemy.getAtk() && this.exp >= enemy.getDef();
     }
 
     public boolean canFight(Boss boss) {
