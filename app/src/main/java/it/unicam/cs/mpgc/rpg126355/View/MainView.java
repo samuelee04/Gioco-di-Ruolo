@@ -30,4 +30,20 @@ public class MainView {
 
     // --- AZIONI DEI BOTTONI GIOCO ---
 
+    @FXML
+    public void handleHeroesClick() {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/HeroView.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            HeroView view = loader.getController();
+            // Passiamo tutti i controller che gli servono per creare il mondo!
+            view.setControllers(heroController, enemyController, weaponController, bossController);
+
+            mainPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
