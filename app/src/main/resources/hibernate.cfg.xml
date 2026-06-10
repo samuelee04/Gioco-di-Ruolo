@@ -14,5 +14,10 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
+        <mapping class="it.unicam.cs.mpgc.rpg126355.Model.Hero"/>
+        <mapping class="it.unicam.cs.mpgc.rpg126355.Model.Enemy"/>
+        <mapping class="it.unicam.cs.mpgc.rpg126355.Model.Weapon"/>
+        <mapping class="it.unicam.cs.mpgc.rpg126355.Model.Boss"/>
+
     </session-factory>
 </hibernate-configuration>

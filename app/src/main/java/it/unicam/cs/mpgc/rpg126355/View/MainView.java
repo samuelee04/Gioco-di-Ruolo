@@ -37,7 +37,6 @@ public class MainView {
             javafx.scene.Parent root = loader.load();
 
             HeroView view = loader.getController();
-
             view.setControllers(heroController, enemyController, weaponController, bossController);
 
             mainPane.setCenter(root);
@@ -45,5 +44,4 @@ public class MainView {
             e.printStackTrace();
         }
     }
-
 }
