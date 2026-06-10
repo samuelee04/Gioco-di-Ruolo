@@ -21,8 +21,8 @@ public class Weapon implements Serializable {
     private static final int LEVEL_RANGE = 21;
 
     // Pool di componenti stringa per la generazione procedurale del nome dell'equipaggiamento
-    private static final String[] TIPI     = {"Spada", "Ascia", "Martello", "Daga", "Lancia", "Alabarda", "Mazza Chiodata", "Bastone Magico", "Spadone", "Arco Lungo"};
-    private static final String[] SUFFISSI = {"delle Ceneri", "dei Re Caduti", "dell'Abisso", "delle Stelle", "dell'Eclissi", "del Drago", "dell'Ira", "dell'Anima", "del Vuoto", "dimenticata", "sanguinaria", "infranta", "del Giudizio"};
+    private static final String[] TIPI = {"Spada", "Ascia", "Martello", "Daga", "Lancia", "Alabarda", "Mazza Chiodata", "Bastone Magico", "Spadone", "Arco Lungo", "Katana", "Scimitarra", "Falcione", "Stocco", "Lama Celata", "Mazza da Guerra"};
+    private static final String[] SUFFISSI = {"delle Ceneri", "dei Re Caduti", "dell'Abisso", "delle Stelle", "dell'Eclissi", "del Drago", "dell'Ira", "dell'Anima", "del Vuoto", "dimenticata", "sanguinaria", "infranta", "del Giudizio", "della Luna Oscura", "dell'Agonia", "d'Ebano", "Suprema", "d'Argento", "della Tempesta", "del Sangue Corrotto"};
 
     /**
      * Identificatore univoco dell'arma nel database (Primary Key).

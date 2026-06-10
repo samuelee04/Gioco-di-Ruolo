@@ -24,8 +24,8 @@ public class Boss implements Serializable {
     private static final int MIN_LEVEL = 20,  LEVEL_RANGE = 10;
 
     // Pool di nomi e titoli per la generazione procedurale
-    private static final String[] NOMI   = {"Azazel", "Gorgoroth", "Malekith", "Voldor", "Kael'thas", "Nyarlathotep", "Balthazar", "Sauron", "Morok"};
-    private static final String[] TITOLI = {"Il Distruttore", "Il Senzanome", "Signore dell'Abisso", "Re dei Lich", "Flagello degli Dei", "L'Ombra Strisciante", "Il Divoratore di Anime", "Il Titano Caduto", "L'Araldo della Rovina"};
+    private static final String[] NOMI = {"Azazel", "Gorgoroth", "Malekith", "Voldor", "Kael'thas", "Nyarlathotep", "Balthazar", "Sauron", "Morok", "Xalthor", "Morgath", "Zul'Gurub", "Tenebris", "Arkanis", "Vaelastrasz", "Ragnarok", "Kalthazar", "Belial"};
+    private static final String[] TITOLI = {"Il Distruttore", "Il Senzanome", "Signore dell'Abisso", "Re dei Lich", "Flagello degli Dei", "L'Ombra Strisciante", "Il Divoratore di Anime", "Il Titano Caduto", "L'Araldo della Rovina", "Il Mietitore di Sangue", "Il Sussurro del Vuoto", "Flagello di Fuoco", "L'Eterno Condannato", "Signore delle Ceneri", "L'Ombra del Destino"};
 
     /**
      * Identificatore univoco del Boss nel database (Primary Key).

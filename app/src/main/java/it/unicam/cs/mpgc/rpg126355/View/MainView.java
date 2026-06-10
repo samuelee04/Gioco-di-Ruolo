@@ -45,6 +45,34 @@ public class MainView {
         }
     }
 
+    @FXML
+    public void handleBossArenaClick() {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/BossArenaView.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            BossArenaView view = loader.getController();
+            view.setControllers(heroController, bossController); // Usa il controller dei Boss!
+
+            mainPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleRulesClick() {
+        try {
+            // Carica la grafica pura, non c'è bisogno di passare nessun controller!
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/RulesView.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            mainPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     // --- AZIONI DEI BOTTONI ADMIN ---
 
     @FXML

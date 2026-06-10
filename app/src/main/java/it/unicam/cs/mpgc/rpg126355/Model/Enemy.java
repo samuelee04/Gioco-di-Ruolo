@@ -23,8 +23,8 @@ public class Enemy implements Serializable {
     private static final int MIN_DEF  = 2,  DEF_RANGE = 6;
 
     // Pool di componenti stringa per la generazione procedurale del nome
-    private static final String[] TIPI      = {"Orco", "Goblin", "Scheletro", "Bandito", "Ragno Gigante", "Lupo Mannaro", "Demone Minore", "Golem", "Vampiro", "Cultista", "Spettro"};
-    private static final String[] AGGETTIVI = {"Feroce", "Corrotto", "Sanguinario", "Putrido", "Oscuro", "Maledetto", "Velenoso", "Corazzato", "Zoppicante", "Famelico"};
+    private static final String[] TIPI = {"Orco", "Goblin", "Scheletro", "Bandito", "Ragno Gigante", "Lupo Mannaro", "Demone Minore", "Golem", "Vampiro", "Cultista", "Spettro", "Ghoul", "Arpia", "Melma", "Imps", "Basilisco", "Necromante", "Gargoyle"};
+    private static final String[] AGGETTIVI = {"Feroce", "Corrotto", "Sanguinario", "Putrido", "Oscuro", "Maledetto", "Velenoso", "Corazzato", "Zoppicante", "Famelico", "Spettrale", "Infetto", "Furtivo", "Immortale", "Colossale", "Errante"};
 
     /**
      * Identificatore univoco del nemico nel database (Primary Key).
