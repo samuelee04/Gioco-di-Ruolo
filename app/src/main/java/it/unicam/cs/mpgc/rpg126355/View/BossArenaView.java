@@ -35,21 +35,17 @@ public class BossArenaView {
     private Controller<Hero> heroController;
     private Controller<Boss> bossController;
 
-    /**
-     * Liste osservabili utilizzate da JavaFX per riflettere dinamicamente
-     * i cambiamenti dei dati del database all'interno delle TableView.
-     */
+    // Liste osservabili collegate alle rispettive TableView.
     private final ObservableList<Hero> heroItems = FXCollections.observableArrayList();
     private final ObservableList<Boss> bossItems = FXCollections.observableArrayList();
 
     /**
-     * Metodo di ciclo di vita di JavaFX. Viene invocato automaticamente al caricamento del file FXML.
-     * Configura il data binding delle colonne delle tabelle (Eroi e Boss) mappando i campi
-     * delle relative entità del Model tramite {@link PropertyValueFactory}.
+     * Metodo di inizializzazione invocato automaticamente da JavaFX dopo il caricamento del FXML.
+     * Collega le colonne di entrambe le TableView alle proprietà dei rispettivi Model.
      */
     @FXML
     public void initialize() {
-        // Setup Eroi
+        // Setup colonne tabella Eroi
         hIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         hNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         hHpCol.setCellValueFactory(new PropertyValueFactory<>("hp"));
@@ -58,7 +54,7 @@ public class BossArenaView {
         hExpCol.setCellValueFactory(new PropertyValueFactory<>("exp"));
         heroTable.setItems(heroItems);
 
-        // Setup Boss
+        // Setup colonne tabella Boss
         bIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         bNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         bHpCol.setCellValueFactory(new PropertyValueFactory<>("hp"));
@@ -69,11 +65,11 @@ public class BossArenaView {
     }
 
     /**
-     * Inietta i controller di persistenza necessari al corretto funzionamento della vista
-     * e avvia il caricamento iniziale dei record delle tabelle.
+     * Inietta i controller necessari alla View e carica immediatamente le liste di eroi e boss.
+     * Deve essere invocato dalla schermata chiamante dopo il caricamento dell'FXML.
      *
-     * @param heroController   Il controller delegato alla gestione dell'entità {@link Hero}.
-     * @param bossController   Il controller delegato alla gestione dell'entità {@link Boss}.
+     * @param heroController controller per la persistenza degli eroi.
+     * @param bossController controller per la persistenza dei boss.
      */
     public void setControllers(Controller<Hero> heroController, Controller<Boss> bossController) {
         this.heroController = heroController;
@@ -81,10 +77,7 @@ public class BossArenaView {
         loadData();
     }
 
-    /**
-     * Sincronizza le liste osservabili grafiche recuperando i dati aggiornati
-     * dal database tramite i rispettivi controller di persistenza.
-     */
+    // Ricarica dal database le liste di eroi e boss e aggiorna entrambe le TableView.
     private void loadData() {
         heroItems.clear();
         bossItems.clear();
@@ -119,40 +112,37 @@ public class BossArenaView {
         combatLogArea.clear();
 
         try {
-            // Esegue il combattimento epico
+            // Esegue il combattimento
             String log = eroe.fight(boss);
             combatLogArea.setText(log);
 
-            // Vittoria
+            // Vittoria: aggiorna l'EXP dell'eroe e rimuove il boss dal mondo
             heroController.update(eroe);
             bossController.remove(boss.getId());
 
             showAlert(Alert.AlertType.INFORMATION, "IMPRESA LEGGENDARIA!", "Hai sconfitto il Signore Oscuro!");
 
         } catch (IllegalArgumentException e) {
-            // Livello troppo basso
+
+            // Livello EXP dell'eroe insufficiente: nessuna modifica al DB
             combatLogArea.setText(e.getMessage());
             showAlert(Alert.AlertType.WARNING, "Non sei pronto", e.getMessage());
 
         } catch (RuntimeException e) {
-            // Sconfitta (Permadeath)
+
+            // Sconfitta: l'eroe muore — Permadeath, rimosso definitivamente dal DB
             combatLogArea.setText(e.getMessage());
             showAlert(Alert.AlertType.ERROR, "Fatality", "Il tuo eroe è stato annientato...");
             heroController.remove(eroe.getId());
         } finally {
+            // Ricarica sempre i dati e pulisce le selezioni, indipendentemente dall'esito
             loadData();
             heroTable.getSelectionModel().clearSelection();
             bossTable.getSelectionModel().clearSelection();
         }
     }
 
-    /**
-     * Visualizza un dialogo modale di avviso (Alert) standard per notificare un messaggio all'utente.
-     *
-     * @param type    Il tipo di Alert (INFORMATION, WARNING, ERROR).
-     * @param title   Il titolo della finestra del dialogo.
-     * @param message Il corpo del messaggio testuale da mostrare.
-     */
+    // Mostra un dialog di avviso all'utente con il tipo, il titolo e il messaggio specificati.
     private void showAlert(Alert.AlertType type, String title, String message) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
