@@ -46,6 +46,21 @@ public class MainView {
     }
 
     @FXML
+    public void handleArenaClick() {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/ArenaView.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            ArenaView view = loader.getController();
+            view.setControllers(heroController, enemyController);
+
+            mainPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void handleBossArenaClick() {
         try {
             javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/BossArenaView.fxml"));

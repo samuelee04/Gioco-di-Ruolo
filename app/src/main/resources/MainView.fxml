@@ -14,6 +14,7 @@
                 <Label text="GIOCO" />
                 <Button mnemonicParsing="false" onAction="#handleHeroesClick" text="Eroi" />
                 <Button mnemonicParsing="false" onAction="#handleBossArenaClick" text="Stanza del Trono (Boss)" />
+                <Button mnemonicParsing="false" onAction="#handleArenaClick" text="Arena (Nemici)" />
 
                 <Button mnemonicParsing="false" onAction="#handleRulesClick" text="Regole del Gioco" />
 
