@@ -46,6 +46,21 @@ public class MainView {
     }
 
     @FXML
+    public void handleEquipClick() {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/EquipView.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            EquipView view = loader.getController();
+            view.setControllers(heroController, weaponController);
+
+            mainPane.setCenter(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void handleArenaClick() {
         try {
             javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/ArenaView.fxml"));
