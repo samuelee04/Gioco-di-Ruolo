@@ -43,9 +43,8 @@ public class App extends Application {
         primaryStage.setMinHeight(550);
         primaryStage.setScene(scene);
 
-        //Forza l'apertura del gioco in FULLSCREEN
-        primaryStage.setFullScreenExitHint("Per uscire dalla modalità FULLSCREEN premere ESC");
-        primaryStage.setFullScreen(true);
+        //Forza l'apertura del gioco in finestra a schermo intero (finestra massimizzata, non fullscreen)
+        primaryStage.setMaximized(true);
 
         primaryStage.show();
     }
