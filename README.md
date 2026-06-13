@@ -30,16 +30,21 @@ gradle run
 
 ## 🤖 Uso di strumenti di AI
 
-In questo progetto ho utilizzato l'Intelligenza Artificiale (Gemini) come tutor personale e assistente alla programmazione. L'AI non ha scritto il codice al mio posto, ma mi ha guidato nello sviluppo architetturale e nella risoluzione di problemi tecnici complessi.
+In questo progetto ho utilizzato l'Intelligenza Artificiale (Gemini, Claude e Cursor.ai) come tutor personale e assistente alla programmazione. L'AI non ha scritto il codice al mio posto, ma mi ha guidato nello sviluppo architetturale e nella risoluzione di problemi tecnici complessi.
 
-In particolare, ho utilizzato Gemini per:
-
+In particolare, ho utilizzato **Gemini** per:
 * **Gestione del Database (Hibernate):** L'AI mi ha guidato nella comprensione dell'ORM, spiegandomi come configurare la persistenza su database H2 locale.
 * **Troubleshooting:** Risolvere conflitti tra dipendenze di Gradle, diagnosticare errori di caricamento dei file FXML (es. LoadException).
 * **Game Design:** Discutere e bilanciare matematicamente le statistiche base degli Eroi, dei Nemici e le probabilità di successo nell'Arena, per rendere il Permadeath e lo scontro con il Boss una sfida equa.
-* **Interfaccia Grafica (JavaFX e Scene Builder):** L'AI mi ha supportato nella stesura e strutturazione del codice necessario per collegare correttamente i file FXML disegnati su Scene Builder ai Controller Java (es. gestione degli @FXML, impostazione delle TableView e dei parametri di layout).
+* **Interfaccia Grafica (JavaFX e Scene Builder):** L'AI mi ha supportato nella strutturazione del codice necessario per collegare correttamente i file FXML disegnati su Scene Builder ai Controller Java (es. gestione degli @FXML, impostazione delle TableView e dei parametri di layout).
 
-Tutta la logica di business, le meccaniche di base e la struttura del progetto sono state pensate, scritte e comprese da me. L'AI è intervenuta per velocizzare il setup della GUI e come guida per aiutarmi a superare gli ostacoli tecnici più difficili.
+Ho utilizzato **Claude** per:
+* **Code Review e Refactoring:** Analisi del codice rispetto ai principi SOLID, identificazione di code smell e applicazione di correzioni sicure (gestione null, costanti, equals/hashCode).
+* **Documentazione:** Inserimento di commenti e Javadoc per migliorare la leggibilità e la manutenibilità del codice, e pulizia/semplificazione di alcune classi.
 
+Ho utilizzato **Cursor.ai** per:
+* **Stile Grafico:** Sviluppo di un foglio di stile CSS per migliorare l'esperienza visiva del gioco con un tema fantasy coerente.
+
+Tutta la logica di business, le meccaniche di base e la struttura del progetto sono state pensate, scritte e comprese da me. L'AI è intervenuta per velocizzare il setup della GUI, migliorare la qualità del codice e come guida per aiutarmi a superare gli ostacoli tecnici più difficili.
 📌 Per una descrizione tecnica più dettagliata dell’architettura e delle scelte implementative, consultare la Wiki del repository.
 ---
