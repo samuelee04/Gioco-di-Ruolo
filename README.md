@@ -46,5 +46,6 @@ Ho utilizzato **Cursor.ai** per:
 * **Stile Grafico:** Sviluppo di un foglio di stile CSS per migliorare l'esperienza visiva del gioco con un tema fantasy coerente.
 
 Tutta la logica di business, le meccaniche di base e la struttura del progetto sono state pensate, scritte e comprese da me. L'AI è intervenuta per velocizzare il setup della GUI, migliorare la qualità del codice e come guida per aiutarmi a superare gli ostacoli tecnici più difficili.
+
 📌 Per una descrizione tecnica più dettagliata dell’architettura e delle scelte implementative, consultare la Wiki del repository.
 ---
