@@ -50,6 +50,12 @@
                                 <Label styleClass="rules-body" text="Quando avrai accumulato abbastanza EXP massacrando nemici minori e trovato un'arma leggendaria, potrai tentare la sorte contro il Signore Oscuro. Sopravvivi, e il tuo nome riecheggerà per l'eternità." wrapText="true" />
                             </children>
                         </VBox>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label styleClass="rules-section-title" text="🎲 6. Strategia &amp; Fortuna" />
+                                <Label styleClass="rules-body" text="Tutte le statistiche del mondo (Eroi, Nemici, Armi e Boss) sono generate casualmente: ogni partita è diversa! Se un Boss appare troppo ostico o non trovi armi adeguate, forgia un altro Eroe: il mondo genererà nuovi Nemici, nuove Armi e un nuovo Boss tra cui scegliere, aumentando le tue possibilità di trovare la combinazione vincente." wrapText="true" />
+                            </children>
+                        </VBox>
                     </children>
                 </VBox>
             </content>

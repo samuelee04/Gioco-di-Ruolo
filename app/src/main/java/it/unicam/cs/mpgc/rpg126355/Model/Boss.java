@@ -18,9 +18,9 @@ public class Boss implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // Costanti per il bilanciamento delle statistiche
-    private static final int MIN_HP    = 150, HP_RANGE    = 100;
-    private static final int MIN_ATK   = 15,  ATK_RANGE   = 20;
-    private static final int MIN_DEF   = 10,  DEF_RANGE   = 15;
+    private static final int MIN_HP    = 40, HP_RANGE    = 40;
+    private static final int MIN_ATK   = 10,  ATK_RANGE   = 10;
+    private static final int MIN_DEF   = 4,   DEF_RANGE   = 6;
     private static final int MIN_LEVEL = 20,  LEVEL_RANGE = 10;
 
     // Pool di nomi e titoli per la generazione procedurale
