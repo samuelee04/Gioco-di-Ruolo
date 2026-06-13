@@ -12,18 +12,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.ArenaView">
+<BorderPane prefHeight="600.0" prefWidth="800.0" styleClass="content-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.ArenaView">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <top>
         <VBox prefHeight="70.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
             <children>
-                <Label text="⚔ Arena di Combattimento">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
+                <Label styleClass="rpg-title" text="⚔ Arena di Combattimento" />
                 <Separator prefWidth="200.0" />
             </children>
         </VBox>
@@ -33,7 +29,7 @@
             <items>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Label text="🛡 I Tuoi Eroi" />
+                        <Label styleClass="rpg-subtitle" text="🛡 I Tuoi Eroi" />
                         <TableView fx:id="heroTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="hIdCol" prefWidth="19.199982464313507" text="ID" />
@@ -51,7 +47,7 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Label text="🦇 Scegli il Bersaglio" />
+                        <Label styleClass="rpg-subtitle" text="🦇 Scegli il Bersaglio" />
                         <TableView fx:id="enemyTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="eIdCol" minWidth="30.0" prefWidth="33.60003739595413" text="ID" />
@@ -75,12 +71,8 @@
                 <Insets top="15.0" />
             </padding>
             <children>
-                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleFight" text="⚔ COMBATTI! ⚔ " textAlignment="CENTER">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Button>
-                <TextArea fx:id="combatLogArea" editable="false" prefHeight="150.0" prefWidth="200.0" wrapText="true" />
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleFight" styleClass="rpg-action-button" text="⚔ COMBATTI! ⚔" textAlignment="CENTER" />
+                <TextArea fx:id="combatLogArea" editable="false" prefHeight="150.0" prefWidth="200.0" styleClass="combat-log" wrapText="true" />
             </children>
         </VBox>
     </bottom>

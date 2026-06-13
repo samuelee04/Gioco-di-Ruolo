@@ -1,0 +1,268 @@
+/* ===== Tema RPG – Fantasy Medievale ===== */
+
+.root {
+    -fx-font-family: "Cambria", "Georgia", "Times New Roman", serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #120c06;
+    -fx-text-fill: #f0e6c8;
+}
+
+/* ---- Sidebar / Menu principale ---- */
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #2a1c0e 0%, #1a1208 60%, #0d0804 100%);
+    -fx-border-color: linear-gradient(to bottom, #ffd700, #8b6914, #ffd700);
+    -fx-border-width: 0 3 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 12, 0, 4, 0);
+}
+
+.sidebar-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffd700;
+    -fx-letter-spacing: 3px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.5), 6, 0, 0, 0);
+    -fx-padding: 4 0 2 0;
+}
+
+.sidebar-divider {
+    -fx-background-color: #8b6914;
+    -fx-min-height: 1;
+    -fx-max-height: 1;
+    -fx-pref-height: 1;
+    -fx-opacity: 0.6;
+}
+
+/* ---- Pannelli contenuto ---- */
+.content-pane {
+    -fx-background-color: linear-gradient(to bottom right, #2d2418 0%, #1a1208 50%, #120c06 100%);
+}
+
+/* ---- Titoli ---- */
+.rpg-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffd700;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 6, 0, 2, 1);
+}
+
+.rpg-subtitle {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e8c547;
+    -fx-padding: 0 0 4 0;
+}
+
+.rules-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e8c547;
+}
+
+.rules-body {
+    -fx-text-fill: #c4b896;
+    -fx-font-size: 13px;
+    -fx-line-spacing: 2px;
+}
+
+/* ---- Bottoni ---- */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #5c4a2a 0%, #3d2b1a 50%, #2a1c0e 100%);
+    -fx-text-fill: #f0e6c8;
+    -fx-border-color: #8b6914;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-padding: 8 18;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 4, 0, 1, 2);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #7a6235 0%, #5c4a2a 50%, #3d2b1a 100%);
+    -fx-border-color: #ffd700;
+    -fx-text-fill: #ffd700;
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.3), 8, 0, 0, 0);
+}
+
+.button:pressed {
+    -fx-background-color: #2a1c0e;
+    -fx-border-color: #c9a227;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 6, 0, 0, 2);
+}
+
+.nav-button {
+    -fx-min-width: 170;
+    -fx-max-width: 170;
+    -fx-alignment: center;
+}
+
+.rpg-action-button {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(to bottom, #8b1a1a 0%, #5c0000 50%, #3d0000 100%);
+    -fx-border-color: #ffd700;
+    -fx-border-width: 3;
+    -fx-text-fill: #ffd700;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-effect: dropshadow(gaussian, rgba(139, 0, 0, 0.7), 12, 0, 0, 3);
+}
+
+.rpg-action-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #b22222 0%, #8b0000 50%, #5c0000 100%);
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.5), 16, 0, 0, 0);
+}
+
+.rpg-action-button:pressed {
+    -fx-background-color: #3d0000;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.8), 8, 0, 0, 2);
+}
+
+/* ---- Campi di testo ---- */
+.text-field {
+    -fx-background-color: #1a1208;
+    -fx-text-fill: #f0e6c8;
+    -fx-border-color: #8b6914;
+    -fx-border-width: 2;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-prompt-text-fill: #7a6848;
+    -fx-padding: 8 12;
+}
+
+.text-field:focused {
+    -fx-border-color: #ffd700;
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.25), 6, 0, 0, 0);
+}
+
+/* ---- Tabelle (inventario / bestiario) ---- */
+.table-view {
+    -fx-background-color: #1a1208;
+    -fx-border-color: #8b6914;
+    -fx-border-width: 2;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #0d0804;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #4a3820 0%, #2d1f0f 100%);
+    -fx-border-color: #5c4a2a;
+    -fx-border-width: 0 1 2 0;
+    -fx-size: 32;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #ffd700;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #f0e6c8;
+    -fx-border-color: transparent #2d1f0f transparent transparent;
+    -fx-padding: 6 8;
+}
+
+.table-row-cell {
+    -fx-background-color: #2d1f0f;
+    -fx-border-color: transparent;
+    -fx-cell-size: 32;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #3d2b1a;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #4a3820;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #5c4a2a;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #ffd700;
+    -fx-font-weight: bold;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: #7a6848;
+}
+
+/* ---- Log di combattimento ---- */
+.combat-log {
+    -fx-control-inner-background: #0a140a;
+    -fx-text-fill: #7cfc7c;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-border-color: #8b6914;
+    -fx-border-width: 2;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 8, 0, 0, 0);
+}
+
+.combat-log .content {
+    -fx-background-color: #0a140a;
+}
+
+/* ---- Separatori ---- */
+.separator .line {
+    -fx-border-color: linear-gradient(to right, transparent, #8b6914, #ffd700, #8b6914, transparent);
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ---- Split pane ---- */
+.split-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.split-pane-divider {
+    -fx-background-color: #8b6914;
+    -fx-padding: 0 3;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-background-color: linear-gradient(to bottom, #ffd700, #8b6914, #ffd700);
+}
+
+/* ---- Scroll pane (regole) ---- */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: #8b6914;
+    -fx-border-width: 2;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #1a1208;
+}
+
+.scroll-pane .scroll-bar:vertical .track,
+.scroll-pane .scroll-bar:horizontal .track {
+    -fx-background-color: #2d1f0f;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb,
+.scroll-pane .scroll-bar:horizontal .thumb {
+    -fx-background-color: #8b6914;
+    -fx-background-radius: 4;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover,
+.scroll-pane .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #ffd700;
+}
+
+/* ---- Label generici ---- */
+.label {
+    -fx-text-fill: #f0e6c8;
+}

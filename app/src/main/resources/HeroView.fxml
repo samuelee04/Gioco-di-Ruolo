@@ -12,30 +12,22 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.HeroView">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="content-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.HeroView">
     <children>
         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-                <Label text="🏰 La Taverna degli Eroi">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
+                <Label styleClass="rpg-title" text="🏰 La Taverna degli Eroi" />
                 <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                     <children>
                         <TextField fx:id="heroNameField" promptText="Nome dell'eroe..." />
-                        <Button mnemonicParsing="false" onAction="#handleForgeHero" text="Forgia" />
-                        <Button mnemonicParsing="false" onAction="#handleDeleteHero" text="Elimina" />
+                        <Button mnemonicParsing="false" onAction="#handleForgeHero" text="⚒ Forgia" />
+                        <Button mnemonicParsing="false" onAction="#handleDeleteHero" text="💀 Elimina" />
                     </children>
                 </HBox>
-                <Label text="📜 Eroi Forgiati">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
+                <Label styleClass="rpg-subtitle" text="📜 Eroi Forgiati" />
                 <TableView fx:id="heroTable" prefHeight="200.0" prefWidth="200.0">
                     <columns>
                         <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />

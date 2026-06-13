@@ -36,9 +36,16 @@ public class App extends Application {
         mainView.setControllers(enemyController, bossController, heroController, weaponController);
 
         Scene scene = new Scene(root, 900, 600);
+        scene.getStylesheets().add(getClass().getResource("/rpg-theme.css").toExternalForm());
 
-        primaryStage.setTitle("RPG");
+        primaryStage.setTitle("⚔ RPG – Realm of Heroes ⚔");
+        primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(550);
         primaryStage.setScene(scene);
+
+        primaryStage.setFullScreenExitHint("Per uscire dalla modalità FULLSCREEN premere ESC");
+        primaryStage.setFullScreen(true);
+
         primaryStage.show();
     }
 

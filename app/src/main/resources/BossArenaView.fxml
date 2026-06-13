@@ -12,16 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.BossArenaView">
+<BorderPane prefHeight="600.0" prefWidth="800.0" styleClass="content-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.BossArenaView">
     <top>
         <VBox prefHeight="70.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
             <children>
-                <Label text="🌋 La Stanza del Trono">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
+                <Label styleClass="rpg-title" text="🌋 La Stanza del Trono" />
                 <Separator prefWidth="200.0" />
             </children>
         </VBox>
@@ -31,7 +26,7 @@
             <items>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Label text="🛡 Il Campione" />
+                        <Label styleClass="rpg-subtitle" text="🛡 Il Campione" />
                         <TableView fx:id="heroTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="hIdCol" prefWidth="75.0" text="ID" />
@@ -49,7 +44,7 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Label text="👑 Il Signore Oscuro" />
+                        <Label styleClass="rpg-subtitle" text="👑 Il Signore Oscuro" />
                         <TableView fx:id="bossTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="bIdCol" prefWidth="75.0" text="ID" />
@@ -71,15 +66,12 @@
     <bottom>
         <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
-                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleFight" text="SFIDA IL BOSS!">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleFight" styleClass="rpg-action-button" text="👑 SFIDA IL BOSS! 👑">
                     <VBox.margin>
                         <Insets bottom="20.0" top="10.0" />
                     </VBox.margin>
                 </Button>
-                <TextArea fx:id="combatLogArea" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                <TextArea fx:id="combatLogArea" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="combat-log" />
             </children>
         </VBox>
     </bottom>

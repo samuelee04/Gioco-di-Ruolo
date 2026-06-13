@@ -9,20 +9,23 @@
 
 <BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.MainView">
     <left>
-        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="12.0" BorderPane.alignment="CENTER">
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="10.0" styleClass="sidebar" BorderPane.alignment="CENTER">
             <children>
-                <Label text="GIOCO" />
-                <Button mnemonicParsing="false" onAction="#handleHeroesClick" text="Eroi" />
-                <Button mnemonicParsing="false" onAction="#handleEquipClick" text="Equipaggiamento" />
-                <Button mnemonicParsing="false" onAction="#handleArenaClick" text="Arena (Nemici)" />
-                <Button mnemonicParsing="false" onAction="#handleBossArenaClick" text="Stanza del Trono (Boss)" />
-                <Button mnemonicParsing="false" onAction="#handleRulesClick" text="Regole del Gioco" />
+                <Label styleClass="rpg-title" text="⚔ RPG" />
+                <Region prefHeight="8.0" prefWidth="160.0" styleClass="sidebar-divider" />
+                <Label styleClass="sidebar-title" text="— GIOCO —" />
+                <Button mnemonicParsing="false" onAction="#handleHeroesClick" styleClass="nav-button" text="🏰 Eroi" />
+                <Button mnemonicParsing="false" onAction="#handleEquipClick" styleClass="nav-button" text="🛡 Equipaggiamento" />
+                <Button mnemonicParsing="false" onAction="#handleArenaClick" styleClass="nav-button" text="⚔ Arena" />
+                <Button mnemonicParsing="false" onAction="#handleBossArenaClick" styleClass="nav-button" text="👑 Stanza del Trono" />
+                <Button mnemonicParsing="false" onAction="#handleRulesClick" styleClass="nav-button" text="📖 Regole" />
                 <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
 
-                <Label text="ADMIN" />
-                <Button mnemonicParsing="false" onAction="#handleEnemiesClick" text="Nemici" />
-                <Button mnemonicParsing="false" onAction="#handleWeaponsClick" text="Armi" />
-                <Button mnemonicParsing="false" onAction="#handleBossesClick" text="Boss" />
+                <Region prefHeight="8.0" prefWidth="160.0" styleClass="sidebar-divider" />
+                <Label styleClass="sidebar-title" text="— ADMIN —" />
+                <Button mnemonicParsing="false" onAction="#handleEnemiesClick" styleClass="nav-button" text="🦇 Nemici" />
+                <Button mnemonicParsing="false" onAction="#handleWeaponsClick" styleClass="nav-button" text="🗡 Armi" />
+                <Button mnemonicParsing="false" onAction="#handleBossesClick" styleClass="nav-button" text="💀 Boss" />
             </children>
             <padding>
                 <Insets bottom="20.0" top="20.0" />

@@ -9,21 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.EnemyView">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="content-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.EnemyView">
     <children>
         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label text="🦇 Bestiario - Nemici">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
-                <Button mnemonicParsing="false" onAction="#handleDeleteSelected" text="Elimina Selezionato" />
-                <Label text="💀 Orda Attuale">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
+                <Label styleClass="rpg-title" text="🦇 Bestiario - Nemici" />
+                <Button mnemonicParsing="false" onAction="#handleDeleteSelected" text="💀 Elimina Selezionato" />
+                <Label styleClass="rpg-subtitle" text="💀 Orda Attuale" />
                 <TableView fx:id="table" prefHeight="200.0" prefWidth="374.0" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.EquipView">
+<BorderPane prefHeight="600.0" prefWidth="800.0" styleClass="content-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.EquipView">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -21,11 +21,7 @@
                 <Insets bottom="15.0" />
             </padding>
             <children>
-                <Label text="⚔ Armeria - Equipaggiamento">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
+                <Label styleClass="rpg-title" text="⚔ Armeria - Equipaggiamento" />
                 <Separator prefWidth="200.0" />
             </children>
         </VBox>
@@ -35,7 +31,7 @@
             <items>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Label text="🛡 Seleziona il tuo Eroe" />
+                        <Label styleClass="rpg-subtitle" text="🛡 Seleziona il tuo Eroe" />
                         <TableView fx:id="heroTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="hIdCol" prefWidth="75.0" text="ID" />
@@ -52,7 +48,7 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Label text="⚔ Scegli un'Arma" />
+                        <Label styleClass="rpg-subtitle" text="⚔ Scegli un'Arma" />
                         <TableView fx:id="weaponTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="wNameCol" prefWidth="75.0" text="NOME" />
@@ -71,10 +67,7 @@
     <bottom>
         <VBox BorderPane.alignment="CENTER">
             <children>
-                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleEquip" text="⚔ EQUIPAGGIA ARMA SELEZIONATA ⚔">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleEquip" styleClass="rpg-action-button" text="⚔ EQUIPAGGIA ARMA SELEZIONATA ⚔">
                     <VBox.margin>
                         <Insets bottom="20.0" top="10.0" />
                     </VBox.margin>

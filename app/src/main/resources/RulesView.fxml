@@ -5,18 +5,13 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="700.0" spacing="15.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="500.0" prefWidth="700.0" spacing="15.0" styleClass="content-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
-        <Label text="📖 Tomo della Saggezza (Regole di Gioco)">
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </Label>
+        <Label styleClass="rpg-title" text="📖 Tomo della Saggezza (Regole di Gioco)" />
         <Separator />
         <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
             <content>
@@ -27,42 +22,32 @@
                     <children>
                         <VBox spacing="5.0">
                             <children>
-                                <Label text="🏰 1. La Genesi (Creazione dell'Eroe)">
-                                    <font><Font name="System Bold" size="16.0" /></font>
-                                </Label>
-                                <Label text="Tutto inizia forgiando un Eroe nella 'Taverna degli Eroi'. Ogni volta che un nuovo Eroe entra nel mondo, il fato genera per lui un intero ecosistema: 5 Nemici casuali, 3 Armi e 1 spaventoso Boss." textFill="#333333" wrapText="true" />
+                                <Label styleClass="rules-section-title" text="🏰 1. La Genesi (Creazione dell'Eroe)" />
+                                <Label styleClass="rules-body" text="Tutto inizia forgiando un Eroe nella 'Taverna degli Eroi'. Ogni volta che un nuovo Eroe entra nel mondo, il fato genera per lui un intero ecosistema: 5 Nemici casuali, 3 Armi e 1 spaventoso Boss." wrapText="true" />
                             </children>
                         </VBox>
                         <VBox spacing="5.0">
                             <children>
-                                <Label text="⚒ 2. L'Armeria (Equipaggiamento)">
-                                    <font><Font name="System Bold" size="16.0" /></font>
-                                </Label>
-                                <Label text="Un eroe non può brandire un'arma troppo potente per lui! Puoi equipaggiare solo armi il cui 'Livello' è MINORE o UGUALE ai punti EXP (Esperienza) del tuo Eroe. L'arma equipaggiata sommerà il suo potere al tuo Attacco base durante i combattimenti." textFill="#333333" wrapText="true" />
+                                <Label styleClass="rules-section-title" text="⚒ 2. L'Armeria (Equipaggiamento)" />
+                                <Label styleClass="rules-body" text="Un eroe non può brandire un'arma troppo potente per lui! Puoi equipaggiare solo armi il cui 'Livello' è MINORE o UGUALE ai punti EXP (Esperienza) del tuo Eroe. L'arma equipaggiata sommerà il suo potere al tuo Attacco base durante i combattimenti." wrapText="true" />
                             </children>
                         </VBox>
                         <VBox spacing="5.0">
                             <children>
-                                <Label text="⚔ 3. L'Arena (Combattimento base)">
-                                    <font><Font name="System Bold" size="16.0" /></font>
-                                </Label>
-                                <Label text="Sfida i mostri nell'Arena per guadagnare Punti EXP. Attenzione: puoi sfidare solo nemici adeguati al tuo livello (Il gioco ti bloccherà se sei troppo debole). I combattimenti avvengono a turni automatici calcolando Attacco e Difesa." textFill="#333333" wrapText="true" />
+                                <Label styleClass="rules-section-title" text="⚔ 3. L'Arena (Combattimento base)" />
+                                <Label styleClass="rules-body" text="Sfida i mostri nell'Arena per guadagnare Punti EXP. Attenzione: puoi sfidare solo nemici adeguati al tuo livello (Il gioco ti bloccherà se sei troppo debole). I combattimenti avvengono a turni automatici calcolando Attacco e Difesa." wrapText="true" />
                             </children>
                         </VBox>
                         <VBox spacing="5.0">
                             <children>
-                                <Label text="☠ 4. Permadeath (Morte Permanente)">
-                                    <font><Font name="System Bold" size="16.0" /></font>
-                                </Label>
-                                <Label text="Non ci sono pozioni della resurrezione. Se i tuoi HP (Punti Vita) scendono a zero durante uno scontro, il tuo Eroe morirà e verrà cancellato per sempre dalla storia (e dal database!). Scegli le tue battaglie con saggezza." textFill="#333333" wrapText="true" />
+                                <Label styleClass="rules-section-title" text="☠ 4. Permadeath (Morte Permanente)" />
+                                <Label styleClass="rules-body" text="Non ci sono pozioni della resurrezione. Se i tuoi HP (Punti Vita) scendono a zero durante uno scontro, il tuo Eroe morirà e verrà cancellato per sempre dalla storia (e dal database!). Scegli le tue battaglie con saggezza." wrapText="true" />
                             </children>
                         </VBox>
                         <VBox spacing="5.0">
                             <children>
-                                <Label text="👑 5. La Stanza del Trono (Il Boss)">
-                                    <font><Font name="System Bold" size="16.0" /></font>
-                                </Label>
-                                <Label text="Quando avrai accumulato abbastanza EXP massacrando nemici minori e trovato un'arma leggendaria, potrai tentare la sorte contro il Signore Oscuro. Sopravvivi, e il tuo nome riecheggerà per l'eternità." textFill="#333333" wrapText="true" />
+                                <Label styleClass="rules-section-title" text="👑 5. La Stanza del Trono (Il Boss)" />
+                                <Label styleClass="rules-body" text="Quando avrai accumulato abbastanza EXP massacrando nemici minori e trovato un'arma leggendaria, potrai tentare la sorte contro il Signore Oscuro. Sopravvivi, e il tuo nome riecheggerà per l'eternità." wrapText="true" />
                             </children>
                         </VBox>
                     </children>

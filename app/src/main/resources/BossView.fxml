@@ -10,21 +10,13 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.BossView">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="content-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg126355.View.BossView">
     <children>
         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label text="👑 Sala del Trono - Boss">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
-                <Button mnemonicParsing="false" onAction="#handleDeleteSelected" text="Elimina Selezionato" />
-                <Label text="🐲 Grandi Nemici">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
+                <Label styleClass="rpg-title" text="👑 Sala del Trono - Boss" />
+                <Button mnemonicParsing="false" onAction="#handleDeleteSelected" text="💀 Elimina Selezionato" />
+                <Label styleClass="rpg-subtitle" text="🐲 Grandi Nemici" />
                 <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
