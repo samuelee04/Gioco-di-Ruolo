@@ -8,6 +8,12 @@ import it.unicam.cs.mpgc.rpg126355.Model.Enemy;
 import it.unicam.cs.mpgc.rpg126355.Model.Hero;
 import it.unicam.cs.mpgc.rpg126355.Model.Weapon;
 
+/**
+ * Controller della schermata principale dell'applicazione.
+ * Gestisce la navigazione tra le varie View del gioco, caricando dinamicamente
+ * il FXML corrispondente e iniettandolo nel {@code mainPane} centrale.
+ *
+ */
 public class MainView {
 
     @FXML
@@ -18,6 +24,10 @@ public class MainView {
     private Controller<Hero> heroController;
     private Controller<Weapon> weaponController;
 
+    /**
+     * Inietta tutti i controller necessari alle View figlie.
+     * Invocato da {@code App} subito dopo il caricamento del FXML principale.
+     */
     public void setControllers(Controller<Enemy> enemyController,
                                Controller<Boss> bossController,
                                Controller<Hero> heroController,
@@ -28,8 +38,11 @@ public class MainView {
         this.weaponController = weaponController;
     }
 
+    // ============================================================
     // --- AZIONI DEI BOTTONI GIOCO ---
+    // ============================================================
 
+    // Mostra la schermata "La Taverna degli Eroi": creazione/eliminazione eroi e generazione del mondo.
     @FXML
     public void handleHeroesClick() {
         try {
@@ -45,6 +58,7 @@ public class MainView {
         }
     }
 
+    // Mostra la schermata "Armeria": equipaggiamento delle armi sugli eroi.
     @FXML
     public void handleEquipClick() {
         try {
@@ -60,6 +74,7 @@ public class MainView {
         }
     }
 
+    // Mostra la schermata "Arena di Combattimento": scontro tra eroe e nemico.
     @FXML
     public void handleArenaClick() {
         try {
@@ -75,6 +90,7 @@ public class MainView {
         }
     }
 
+    // Mostra la schermata "Stanza del Trono": scontro tra eroe e boss.
     @FXML
     public void handleBossArenaClick() {
         try {
@@ -82,7 +98,7 @@ public class MainView {
             javafx.scene.Parent root = loader.load();
 
             BossArenaView view = loader.getController();
-            view.setControllers(heroController, bossController); // Usa il controller dei Boss!
+            view.setControllers(heroController, bossController); // Usa il controller dei Boss
 
             mainPane.setCenter(root);
         } catch (Exception e) {
@@ -90,6 +106,7 @@ public class MainView {
         }
     }
 
+    // Mostra la schermata "Regole del Gioco": contenuto statico, nessun controller necessario.
     @FXML
     public void handleRulesClick() {
         try {
@@ -103,8 +120,11 @@ public class MainView {
         }
     }
 
+    // ============================================================
     // --- AZIONI DEI BOTTONI ADMIN ---
+    // ============================================================
 
+    // Mostra la schermata "Bestiario": elenco e gestione dei nemici presenti nel mondo.
     @FXML
     public void handleEnemiesClick() {
         try {
@@ -123,6 +143,7 @@ public class MainView {
         }
     }
 
+    // Mostra la schermata "Arsenale": elenco e gestione delle armi presenti nel mondo.
     @FXML
     public void handleWeaponsClick() {
         try {
@@ -138,6 +159,7 @@ public class MainView {
         }
     }
 
+    // Mostra la schermata "Sala del Trono - Boss": elenco e gestione dei boss presenti nel mondo.
     @FXML
     public void handleBossesClick() {
         try {
